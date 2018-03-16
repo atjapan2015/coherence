@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="oracle.eclipse.tools.coherence.launchConfigurationType">
+<mapAttribute key="coherence.system.properties">
+<mapEntry key="CacheConfig" value="coherence.cacheconfig"/>
+<mapEntry key="ClusterAddress" value="coherence.clusteraddress"/>
+<mapEntry key="ClusterPort" value="coherence.clusterport"/>
+<mapEntry key="LocalStorage" value="coherence.distributed.localstorage"/>
+<mapEntry key="Log" value="coherence.log"/>
+<mapEntry key="LogLevel" value="coherence.log.level"/>
+<mapEntry key="Ttl" value="coherence.ttl"/>
+<mapEntry key="coherence.pof.config" value="coherence.pof.config"/>
+</mapAttribute>
+<mapAttribute key="coherence.values">
+<mapEntry key="CacheConfig" value="src/main/resources/employees-cache-config.xml"/>
+<mapEntry key="ClusterAddress" value="127.0.0.1"/>
+<mapEntry key="ClusterPort" value="3155"/>
+<mapEntry key="Communication" value="multicast"/>
+<mapEntry key="LocalStorage" value="false"/>
+<mapEntry key="Log" value="stdout"/>
+<mapEntry key="LogLevel" value="5"/>
+<mapEntry key="Ttl" value="4"/>
+<mapEntry key="coherence.pof.config" value="contacts-pof-config.xml"/>
+</mapAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/coherence/src/main/java/com/coherence/demo/CoherenceApplication.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.coherence.demo.CoherenceApplication"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="coherence"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-showversion"/>
+</launchConfiguration>

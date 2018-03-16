@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE generatorConfiguration PUBLIC
+   "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="/u01/data/eclipse-workspace/coherence/lib/ojdbc6.jar" />
+	<context id="context1">
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@localhost:1521:my11g" userId="system"
+			password="oracle" />
+
+		<javaModelGenerator targetPackage="com.coherence.demo.common.entity"
+			targetProject="coherence" />
+		<sqlMapGenerator targetPackage="com.coherence.demo.common.mapper"
+			targetProject="coherence" />
+		<javaClientGenerator targetPackage="com.coherence.demo.common.mapper"
+			targetProject="coherence" type="XMLMAPPER" />
+
+		<table schema="csdemo" tableName="employee" />
+	</context>
+</generatorConfiguration>

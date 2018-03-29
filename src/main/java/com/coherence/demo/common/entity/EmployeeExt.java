@@ -10,7 +10,7 @@ import com.tangosol.util.HashHelper;
 
 public class EmployeeExt implements PortableObject {
 
-	private Long id;
+	private Short id;
 
 	private String firstname;
 
@@ -20,7 +20,7 @@ public class EmployeeExt implements PortableObject {
 
 	}
 
-	public EmployeeExt(Long id, String firstname, String lastname) {
+	public EmployeeExt(Short id, String firstname, String lastname) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -30,7 +30,7 @@ public class EmployeeExt implements PortableObject {
 	@Override
 	public void readExternal(PofReader arg0) throws IOException {
 
-		setId(arg0.readLong(0));
+		setId(arg0.readShort(0));
 
 		setFirstname(arg0.readString(1));
 
@@ -48,11 +48,11 @@ public class EmployeeExt implements PortableObject {
 		arg0.writeString(2, getLastname());
 	}
 
-	public Long getId() {
+	public Short getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Short id) {
 		this.id = id;
 	}
 

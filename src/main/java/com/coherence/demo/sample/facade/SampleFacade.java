@@ -11,6 +11,6 @@ public interface SampleFacade {
 
 	List<Employee> selectByExample(EmployeeExample example);
 
-	Employee selectByPrimaryKey(Long id);
+	Employee selectByPrimaryKey(Short id);
 
 }

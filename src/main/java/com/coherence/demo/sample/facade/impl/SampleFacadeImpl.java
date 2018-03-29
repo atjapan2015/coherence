@@ -57,7 +57,7 @@ public class SampleFacadeImpl implements SampleFacade {
 	}
 
 	@Override
-	public Employee selectByPrimaryKey(Long id) {
+	public Employee selectByPrimaryKey(Short id) {
 
 		long startTime = Instant.now().toEpochMilli();
 		logger.info("######Method-selectByExample start######");

@@ -53,7 +53,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee selectByPrimaryKey(Long id) {
+	public Employee selectByPrimaryKey(Short id) {
 
 		return employeeMapper.selectByPrimaryKey(id);
 	}

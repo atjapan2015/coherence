@@ -51,8 +51,8 @@ public class SampleController {
 
 	}
 
-	@RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
-	public Employee employee(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
+	public Employee employee(@PathVariable("id") Short id) {
 
 		long startTime = Instant.now().toEpochMilli();
 		logger.info("######Method-employee start######");

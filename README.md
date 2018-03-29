@@ -20,6 +20,7 @@ curl localhost:8388/sample/employee/2
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM" ;
+  
 --------------------------------------------------------
 --  DDL for Index EMPLOYEE_PK
 --------------------------------------------------------
@@ -30,6 +31,7 @@ curl localhost:8388/sample/employee/2
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM" ;
+  
 --------------------------------------------------------
 --  Constraints for Table EMPLOYEE
 --------------------------------------------------------

@@ -1,3 +1,11 @@
+# Document
+http://www.oracle.com/technetwork/cn/articles/grid/coherence-in-memory-grid-01-3227562-zhs.html
+
+# Add Facet
+.settings/org.eclipse.wst.common.project.facet.core.xml
+add 
+  <installed facet="oracle.coherence" version="12.2.1"/>
+
 # coherence
 
 curl localhost:8388/sample/hello

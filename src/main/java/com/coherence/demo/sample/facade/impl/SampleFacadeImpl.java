@@ -2,6 +2,7 @@ package com.coherence.demo.sample.facade.impl;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,6 +66,24 @@ public class SampleFacadeImpl implements SampleFacade {
 		try {
 
 			return employeeService.selectByPrimaryKey(id);
+		} finally {
+
+			long endTime = Instant.now().toEpochMilli();
+			logger.info("######程序运行时间： " + (endTime - startTime) + "毫秒######");
+			logger.info("######Method-selectByExample end######");
+		}
+
+	}
+	
+	@Override
+	public Employee selectByPrimaryKeyUnion(Map<String, List<Short>> searchMap) {
+
+		long startTime = Instant.now().toEpochMilli();
+		logger.info("######Method-selectByExample start######");
+
+		try {
+
+			return employeeService.selectByPrimaryKeyUnion(searchMap);
 		} finally {
 
 			long endTime = Instant.now().toEpochMilli();

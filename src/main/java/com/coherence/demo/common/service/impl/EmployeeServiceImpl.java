@@ -1,6 +1,7 @@
 package com.coherence.demo.common.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Employee selectByPrimaryKey(Short id) {
 
 		return employeeMapper.selectByPrimaryKey(id);
+	}
+	
+	@Override
+	public Employee selectByPrimaryKeyUnion(Map<String, List<Short>> searchMap) {
+
+		return employeeMapper.selectByPrimaryKeyUnion(searchMap);
 	}
 
 	@Override

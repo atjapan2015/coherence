@@ -1,6 +1,7 @@
 package com.coherence.demo.common.entity;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import com.tangosol.io.pof.PofReader;
 import com.tangosol.io.pof.PofWriter;
@@ -9,6 +10,11 @@ import com.tangosol.util.Base;
 import com.tangosol.util.HashHelper;
 
 public class EmployeeExt implements PortableObject {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1451283638803399635L;
 
 	private Short id;
 

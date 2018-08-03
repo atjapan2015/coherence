@@ -1,7 +1,10 @@
 package com.coherence.demo.sample.controller;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,8 +54,8 @@ public class SampleController {
 
 	}
 
-	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
-	public Employee employee(@PathVariable("id") Short id) {
+	@RequestMapping(value = "/employee/coherence/{id}", method = RequestMethod.GET)
+	public Employee employeeWithCoherence(@PathVariable("id") Short id) {
 
 		long startTime = Instant.now().toEpochMilli();
 		logger.info("######Method-employee start######");
@@ -79,6 +82,101 @@ public class SampleController {
 				employeeCache.put(String.valueOf(result.getId()), employeeExt2);
 				return result;
 			}
+		} finally {
+
+			long endTime = Instant.now().toEpochMilli();
+			logger.info("######程序运行时间： " + (endTime - startTime) + "毫秒######");
+			logger.info("######Method-employee end######");
+		}
+
+	}
+
+	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
+	public Employee employee(@PathVariable("id") Short id) {
+
+		long startTime = Instant.now().toEpochMilli();
+		logger.info("######Method-employee start######");
+
+		try {
+
+			logger.info("######Method-employee 尝试从数据库中取得对象######");
+			Employee result = sampleFacade.selectByPrimaryKey(id);
+			EmployeeExt employeeExt2 = new EmployeeExt();
+			BeanUtils.copyProperties(result, employeeExt2);
+			return result;
+		} finally {
+
+			long endTime = Instant.now().toEpochMilli();
+			logger.info("######程序运行时间： " + (endTime - startTime) + "毫秒######");
+			logger.info("######Method-employee end######");
+		}
+
+	}
+
+	@RequestMapping(value = "/employee/coherence/union/{id}", method = RequestMethod.GET)
+	public Employee employeeWithCoherenceUnion(@PathVariable("id") Short id) {
+
+		long startTime = Instant.now().toEpochMilli();
+		logger.info("######Method-employee start######");
+
+		List<Short> searchList = new ArrayList<>();
+		for (int i = 0; i < 200; i++) {
+			searchList.add(id);
+		}
+
+		try {
+
+			logger.info("######Method-employee 尝试从缓存中取得对象######");
+			NamedCache<String, EmployeeExt> employeeCache = CacheFactory.getCache("employee");
+
+			EmployeeExt employeeExt = (EmployeeExt) employeeCache.get(String.valueOf(id));
+			if (employeeExt != null && employeeExt.getId() != null) {
+
+				logger.info("######Method-employee 从缓存中取得对象成功######");
+				Employee result = new Employee();
+				BeanUtils.copyProperties(employeeExt, result);
+				return result;
+			} else {
+
+				logger.info("######Method-employee 从缓存中取得对象失败######");
+				logger.info("######Method-employee 尝试从数据库中取得对象######");
+				Map<String, List<Short>> searchMap = new HashMap<>();
+				searchMap.put("searchList", searchList);
+				Employee result = sampleFacade.selectByPrimaryKeyUnion(searchMap);
+				EmployeeExt employeeExt2 = new EmployeeExt();
+				BeanUtils.copyProperties(result, employeeExt2);
+				employeeCache.put(String.valueOf(result.getId()), employeeExt2);
+				return result;
+			}
+		} finally {
+
+			long endTime = Instant.now().toEpochMilli();
+			logger.info("######程序运行时间： " + (endTime - startTime) + "毫秒######");
+			logger.info("######Method-employee end######");
+		}
+
+	}
+
+	@RequestMapping(value = "/employee/union/{id}", method = RequestMethod.GET)
+	public Employee employeeUnion(@PathVariable("id") Short id) {
+
+		long startTime = Instant.now().toEpochMilli();
+		logger.info("######Method-employee start######");
+
+		List<Short> searchList = new ArrayList<>();
+		for (int i = 0; i < 200; i++) {
+			searchList.add(id);
+		}
+
+		try {
+
+			logger.info("######Method-employee 尝试从数据库中取得对象######");
+			Map<String, List<Short>> searchMap = new HashMap<>();
+			searchMap.put("searchList", searchList);
+			Employee result = sampleFacade.selectByPrimaryKeyUnion(searchMap);
+			EmployeeExt employeeExt2 = new EmployeeExt();
+			BeanUtils.copyProperties(result, employeeExt2);
+			return result;
 		} finally {
 
 			long endTime = Instant.now().toEpochMilli();

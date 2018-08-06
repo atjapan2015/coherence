@@ -4,11 +4,11 @@
    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
 	<classPathEntry
-		location="/u01/data/eclipse-workspace/coherence/lib/ojdbc8.jar" />
+		location="/u01/data/workspace/coherence/lib/ojdbc8.jar" />
 	<context id="context1">
 		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@localhost:1521:CDB1" userId="system"
-			password="oracle" />
+			connectionURL="jdbc:oracle:thin:@129.156.114.114:1521/PDB1.590601298.oraclecloud.internal" userId="jcstest"
+			password="Welcomm1#" />
 
 		<javaModelGenerator targetPackage="com.coherence.demo.common.entity"
 			targetProject="coherence" />

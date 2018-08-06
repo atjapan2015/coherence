@@ -1,5 +1,6 @@
 package com.coherence.demo.sample.facade;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +13,8 @@ public interface SampleFacade {
 
 	List<Employee> selectByExample(EmployeeExample example);
 
-	Employee selectByPrimaryKey(Short id);
+	Employee selectByPrimaryKey(BigDecimal id);
 	
-	Employee selectByPrimaryKeyUnion(Map<String, List<Short>> searchMap);
+	Employee selectByPrimaryKeyUseUnion(Map<String, List<BigDecimal>> map);
 
 }

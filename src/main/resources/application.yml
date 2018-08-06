@@ -1,7 +1,7 @@
-server.port=8388
+server.port: 8388
 
-
+spring.datasource.jndi-name: jdbc/jcstestds
 #spring.datasource.url=jdbc:oracle:thin:@localhost:1521:ORCLCDB
 #spring.datasource.username=system
 #spring.datasource.password=welcome1
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+#spring.datasource.driver-class-name=oracle.jdbc.OracleDriver

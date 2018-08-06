@@ -1,5 +1,6 @@
 package com.coherence.demo.sample.facade.impl;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,7 @@ public class SampleFacadeImpl implements SampleFacade {
 	}
 
 	@Override
-	public Employee selectByPrimaryKey(Short id) {
+	public Employee selectByPrimaryKey(BigDecimal id) {
 
 		long startTime = Instant.now().toEpochMilli();
 		logger.info("######Method-selectByExample start######");
@@ -76,14 +77,14 @@ public class SampleFacadeImpl implements SampleFacade {
 	}
 	
 	@Override
-	public Employee selectByPrimaryKeyUnion(Map<String, List<Short>> searchMap) {
+	public Employee selectByPrimaryKeyUseUnion(Map<String, List<BigDecimal>> map) {
 
 		long startTime = Instant.now().toEpochMilli();
 		logger.info("######Method-selectByExample start######");
 
 		try {
 
-			return employeeService.selectByPrimaryKeyUnion(searchMap);
+			return employeeService.selectByPrimaryKeyUseUnion(map);
 		} finally {
 
 			long endTime = Instant.now().toEpochMilli();

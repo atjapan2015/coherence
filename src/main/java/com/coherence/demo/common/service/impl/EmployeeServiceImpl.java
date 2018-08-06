@@ -1,5 +1,6 @@
 package com.coherence.demo.common.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -30,15 +31,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public int deleteByPrimaryKey(Long id) {
+	public int deleteByPrimaryKey(BigDecimal id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int insert(Employee record) {
-
-		return employeeMapper.insert(record);
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
@@ -49,20 +50,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> selectByExample(EmployeeExample example) {
-
+		
 		return employeeMapper.selectByExample(example);
 	}
 
 	@Override
-	public Employee selectByPrimaryKey(Short id) {
-
+	public Employee selectByPrimaryKey(BigDecimal id) {
+		
 		return employeeMapper.selectByPrimaryKey(id);
 	}
-	
-	@Override
-	public Employee selectByPrimaryKeyUnion(Map<String, List<Short>> searchMap) {
 
-		return employeeMapper.selectByPrimaryKeyUnion(searchMap);
+	@Override
+	public Employee selectByPrimaryKeyUseUnion(Map<String, List<BigDecimal>> map) {
+		
+		return employeeMapper.selectByPrimaryKeyUseUnion(map);
 	}
 
 	@Override
@@ -88,5 +89,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Employee selectByPrimaryKeyUnion(Map<String, List<Short>> searchMap) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

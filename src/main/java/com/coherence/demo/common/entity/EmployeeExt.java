@@ -2,6 +2,7 @@ package com.coherence.demo.common.entity;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import com.tangosol.io.pof.PofReader;
 import com.tangosol.io.pof.PofWriter;
@@ -16,49 +17,27 @@ public class EmployeeExt implements PortableObject {
 	 */
 	private static final long serialVersionUID = 1451283638803399635L;
 
-	private Short id;
+	private BigDecimal id;
 
 	private String firstname;
 
 	private String lastname;
 
-	public EmployeeExt() {
+	private String email;
 
-	}
+	private String phone;
 
-	public EmployeeExt(Short id, String firstname, String lastname) {
-		super();
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-	}
+	private String birthdate;
 
-	@Override
-	public void readExternal(PofReader arg0) throws IOException {
+	private String title;
 
-		setId(arg0.readShort(0));
+	private String department;
 
-		setFirstname(arg0.readString(1));
-
-		setLastname(arg0.readString(2));
-
-	}
-
-	@Override
-	public void writeExternal(PofWriter arg0) throws IOException {
-
-		arg0.writeLong(0, getId());
-
-		arg0.writeString(1, getFirstname());
-
-		arg0.writeString(2, getLastname());
-	}
-
-	public Short getId() {
+	public BigDecimal getId() {
 		return id;
 	}
 
-	public void setId(Short id) {
+	public void setId(BigDecimal id) {
 		this.id = id;
 	}
 
@@ -76,6 +55,90 @@ public class EmployeeExt implements PortableObject {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public EmployeeExt() {
+
+	}
+
+	public EmployeeExt(BigDecimal id, String firstname, String lastname, String email, String phone, String birthdate,
+			String title, String department) {
+		super();
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.phone = phone;
+		this.birthdate = birthdate;
+		this.title = title;
+		this.department = department;
+
+	}
+
+	@Override
+	public void readExternal(PofReader arg0) throws IOException {
+
+		setId(arg0.readBigDecimal(0));
+		setFirstname(arg0.readString(1));
+		setLastname(arg0.readString(2));
+		setEmail(arg0.readString(3));
+		setPhone(arg0.readString(4));
+		setBirthdate(arg0.readString(5));
+		setTitle(arg0.readString(6));
+		setDepartment(arg0.readString(7));
+	}
+
+	@Override
+	public void writeExternal(PofWriter arg0) throws IOException {
+
+		arg0.writeBigDecimal(0, getId());
+		arg0.writeString(1, getFirstname());
+		arg0.writeString(2, getLastname());
+		arg0.writeString(3, getEmail());
+		arg0.writeString(4, getPhone());
+		arg0.writeString(5, getBirthdate());
+		arg0.writeString(6, getTitle());
+		arg0.writeString(7, getDepartment());
 	}
 
 	@Override
